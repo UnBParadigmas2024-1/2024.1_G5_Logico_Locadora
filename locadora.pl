@@ -9,24 +9,13 @@
 %uma variavel pode ser adicionada no funtor cliente. Filmes Alugados. Seria um vetor de filmes alugados. por exemplo: cliente('Alice', ['Inception', 'Parasite']).
 
 % Declarando o menu
+:- [cliente].
 :- [menu].
+:- [filme].
+%:- [aluguel].
 
 % Aqui é para inicializar o menu sem precisar de argumentos
 :- initialization(menu).
 
-
-% Predicados específicos para cada ação
-cadastro_cliente :-
-    writeln('Cadastrando o cliente...').
-
-cadastro_filme :-
-    writeln('Cadastrando o filme...').
-
-recomendacao_filme :-
-    writeln('Recomendando o filme...'). %mais complexo
-
-listar_todos_filmes :-
-    writeln('Listando todos os filmes...').
-
-aluguel_filme :-
-    writeln('Locando filme...'). %mais complexo
+% Printar se foi carregado corretamente
+:- writeln('locadora.pl carregado com sucesso').
