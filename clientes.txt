@@ -1,4 +1,8 @@
 cliente(1, 'Eduardo', '111.222.333-44').
 cliente(2, 'Pessoa 2', '555.666.777-88').
 cliente(3, 'Pessoa 3', '999.888.777-66').
+cliente(1, 'Eduardo', '111.222.333-44').
+cliente(2, 'Pessoa 2', '555.666.777-88').
+cliente(3, 'Pessoa 3', '999.888.777-66').
 cliente(4, 'Eduardo G', '0128210921929').
+cliente(8, 'Eduardo1', '077.000.000-99').

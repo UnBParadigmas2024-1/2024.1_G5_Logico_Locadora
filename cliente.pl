@@ -1,5 +1,5 @@
 :- dynamic cliente/3.
-
+% Remover os dados de filme abaixo para não replicar .txt
 % cliente(Codigo, Nome, CPF).
 cliente(1, 'Eduardo', '111.222.333-44').
 cliente(2, 'Pessoa 2', '555.666.777-88').
@@ -64,5 +64,5 @@ carregar_clientes :-
     ).
 
 % Printar se foi carregado corretamente
-:- writeln('cliente.pl carregado com sucesso').
+:- writeln('cliente.pl carregado com sucesso\n\n').
 :- carregar_clientes.

@@ -1,5 +1,6 @@
 :- dynamic filme/7.
 
+% Remover os dados de filme abaixo para não replicar .txt
 % filme(Codigo, Titulo, Ano, Nota, Genero, Valor, Disponivel).
 filme(1, 'Matrix', 1999, 8.7, 'Acao', 10.0, true).
 filme(2, 'Inception', 2010, 8.8, 'Ciencia', 12.0, true).
@@ -78,5 +79,5 @@ carregar_filmes :-
     ).
 
 % Printar se foi carregado corretamente
-:- writeln('filme.pl carregado com sucesso').
+:- writeln('filme.pl carregado com sucesso\n\n').
 :- carregar_filmes.
