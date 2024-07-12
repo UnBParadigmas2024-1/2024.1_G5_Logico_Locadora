@@ -8,23 +8,18 @@ cliente(3, 'Pessoa 3', '999.888.777-66').
 % Cadastro de cliente
 cadastro_cliente :-
     writeln('--- Cadastro de Cliente ---'),
-
-    % Depuração
     writeln('Entrando no predicado cadastro_cliente'),
     writeln('Nome:'),
     read_line_to_string(user_input, Nome),
-
-    % Depuração
     format('Nome lido: ~w~n', [Nome]),
     writeln('CPF:'),
     read_line_to_string(user_input, CPF),
-
-    % Depuração
     format('CPF lido: ~w~n', [CPF]),
     findall(Codigo, cliente(Codigo, _, _), Codigos),
     length(Codigos, N),
     Codigo is N + 1,
     assertz(cliente(Codigo, Nome, CPF)),
+    salvar_clientes,  % Salvar clientes após o cadastro
     writeln('Cliente cadastrado com sucesso!').
 
 % Listar clientes
@@ -36,15 +31,38 @@ listar_clientes :-
 % Excluir cliente
 excluir_cliente :-
     writeln('--- Excluir Cliente ---'),
-    writeln('Depuração: Entrando no predicado excluir_cliente'),
+    writeln('Entrando no predicado excluir_cliente'),
     writeln('Codigo do Cliente:'),
     read_line_to_string(user_input, CodigoString),
     (   number_string(Codigo, CodigoString),
         cliente(Codigo, Nome, CPF) ->
         retract(cliente(Codigo, Nome, CPF)),
+        salvar_clientes,  % Salvar clientes após a exclusão
         format('Cliente ~w (CPF: ~w) excluído com sucesso!~n', [Nome, CPF])
     ;   writeln('Cliente não encontrado ou código inválido.')
     ).
 
+% Salvar clientes em um arquivo
+salvar_clientes :-
+    open('clientes.txt', write, Stream),
+    forall(cliente(Codigo, Nome, CPF),
+        format(Stream, 'cliente(~w, \'~w\', \'~w\').~n', [Codigo, Nome, CPF])),
+    close(Stream).
+
+% Carregar clientes de um arquivo
+carregar_clientes :-
+    (   exists_file('clientes.txt') ->
+        open('clientes.txt', read, Stream),
+        repeat,
+        read(Stream, Term),
+        (   Term == end_of_file ->
+            close(Stream), !
+        ;   assertz(Term),
+            fail
+        )
+    ;   writeln('Arquivo clientes.txt não encontrado, inicializando sem dados persistidos.')
+    ).
+
 % Printar se foi carregado corretamente
 :- writeln('cliente.pl carregado com sucesso').
+:- carregar_clientes.

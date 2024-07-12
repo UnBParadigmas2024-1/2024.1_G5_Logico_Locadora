@@ -1,0 +1,3 @@
+filme(1, 'Matrix', 1999, 8.7, 'Acao', 10.0, true).
+filme(2, 'Inception', 2010, 8.8, 'Ciencia', 12.0, true).
+filme(3, 'Filme1', 1998, 9, 'Ciencia', 299, true).
