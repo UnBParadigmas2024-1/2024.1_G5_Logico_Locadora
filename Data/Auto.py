@@ -21,7 +21,7 @@ def csv_to_prolog(input_file, output_file):
                 valor = generate_budget()
                 disponivel = "true" 
                 
-                prolog_fact = f"filme({identificador}, '{nome}', {ano}, {nota}, '{genero}', {valor}, {disponivel}).\n"
+                prolog_fact = f"filme({identificador}, '{nome}', {ano}, {nota}, [{genero.lower()}], {valor}, {disponivel}).\n"
                 prolog_file.write(prolog_fact)
 
 # Exemplo de uso
