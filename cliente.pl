@@ -1,9 +1,6 @@
 :- dynamic cliente/3.
 % Remover os dados de filme abaixo para não replicar .txt
 % cliente(Codigo, Nome, CPF).
-cliente(1, 'Eduardo', '111.222.333-44').
-cliente(2, 'Pessoa 2', '555.666.777-88').
-cliente(3, 'Pessoa 3', '999.888.777-66').
 
 % Cadastro de cliente
 cadastro_cliente :-
@@ -49,6 +46,10 @@ salvar_clientes :-
         format(Stream, 'cliente(~w, \'~w\', \'~w\').~n', [Codigo, Nome, CPF])),
     close(Stream).
 
+% Limpar base de clientes
+limpar_clientes :-
+    retractall(cliente(_,_,_)).
+
 % Carregar clientes de um arquivo
 carregar_clientes :-
     (   exists_file('clientes.txt') ->
@@ -65,4 +66,5 @@ carregar_clientes :-
 
 % Printar se foi carregado corretamente
 :- writeln('cliente.pl carregado com sucesso\n\n').
+:- limpar_clientes.
 :- carregar_clientes.

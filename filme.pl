@@ -2,8 +2,6 @@
 
 % Remover os dados de filme abaixo para não replicar .txt
 % filme(Codigo, Titulo, Ano, Nota, Genero, Valor, Disponivel).
-filme(1, 'Matrix', 1999, 8.7, 'Acao', 10.0, true).
-filme(2, 'Inception', 2010, 8.8, 'Ciencia', 12.0, true).
 
 % Cadastro de filme
 cadastro_filme :-
@@ -64,6 +62,10 @@ salvar_filmes :-
                [Codigo, Titulo, Ano, Nota, Genero, Valor, Disponivel])),
     close(Stream).
 
+% Limpar base de filmes
+limpar_filmes :-
+    retractall(filme(_,_,_,_,_,_,_)).
+
 % Carregar filmes de um arquivo
 carregar_filmes :-
     (   exists_file('filmes.txt') ->
@@ -80,4 +82,5 @@ carregar_filmes :-
 
 % Printar se foi carregado corretamente
 :- writeln('filme.pl carregado com sucesso\n\n').
+:- limpar_filmes.
 :- carregar_filmes.
