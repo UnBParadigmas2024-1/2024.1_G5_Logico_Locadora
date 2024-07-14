@@ -7,24 +7,33 @@
 cadastro_filme :-
     writeln('--- Cadastro de Filme ---'),
     writeln('Entrando no predicado cadastro_filme'),
+
     writeln('Titulo:'),
     read_line_to_string(user_input, Titulo),
     format('Titulo lido: ~w~n', [Titulo]),
+
     writeln('Ano:'),
     read_line_to_string(user_input, AnoString),
     number_string(Ano, AnoString),
     format('Ano lido: ~w~n', [Ano]),
+
     writeln('Nota:'),
     read_line_to_string(user_input, NotaString),
     number_string(Nota, NotaString),
     format('Nota lida: ~w~n', [Nota]),
+
     writeln('Genero:'),
-    read_line_to_string(user_input, Genero),
+    read_line_to_string(user_input, GeneroString),
+    string_lower(GeneroString, GeneroLower),
+    atom_string(GeneroA, GeneroLower),
+    append([], [GeneroA], Genero),
     format('Genero lido: ~w~n', [Genero]),
+
     writeln('Valor:'),
     read_line_to_string(user_input, ValorString),
     number_string(Valor, ValorString),
     format('Valor lido: ~w~n', [Valor]),
+    
     Disponivel = true,
     findall(Codigo, filme(Codigo, _, _, _, _, _, _), Codigos),
     max_list(Codigos, N),
@@ -58,7 +67,7 @@ excluir_filme :-
 salvar_filmes :-
     open('filmes.txt', write, Stream),
     forall(filme(Codigo, Titulo, Ano, Nota, Genero, Valor, Disponivel),
-        format(Stream, 'filme(~w, \'~w\', ~w, ~w, \'~w\', ~w, ~w).~n', 
+        format(Stream, 'filme(~w, \'~w\', ~w, ~w, ~w, ~w, ~w).~n', 
                [Codigo, Titulo, Ano, Nota, Genero, Valor, Disponivel])),
     close(Stream).
 

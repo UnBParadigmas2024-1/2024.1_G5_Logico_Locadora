@@ -6,12 +6,15 @@
 cadastro_cliente :-
     writeln('--- Cadastro de Cliente ---'),
     writeln('Entrando no predicado cadastro_cliente'),
+
     writeln('Nome:'),
     read_line_to_string(user_input, Nome),
     format('Nome lido: ~w~n', [Nome]),
+
     writeln('CPF:'),
     read_line_to_string(user_input, CPF),
     format('CPF lido: ~w~n', [CPF]),
+    
     findall(Codigo, cliente(Codigo, _, _), Codigos),
     max_list(Codigos, N),
     Codigo is N + 1,
