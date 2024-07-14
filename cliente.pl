@@ -13,7 +13,7 @@ cadastro_cliente :-
     read_line_to_string(user_input, CPF),
     format('CPF lido: ~w~n', [CPF]),
     findall(Codigo, cliente(Codigo, _, _), Codigos),
-    length(Codigos, N),
+    max_list(Codigos, N),
     Codigo is N + 1,
     assertz(cliente(Codigo, Nome, CPF)),
     salvar_clientes,  % Salvar clientes após o cadastro

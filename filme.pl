@@ -27,7 +27,7 @@ cadastro_filme :-
     format('Valor lido: ~w~n', [Valor]),
     Disponivel = true,
     findall(Codigo, filme(Codigo, _, _, _, _, _, _), Codigos),
-    length(Codigos, N),
+    max_list(Codigos, N),
     Codigo is N + 1,
     assertz(filme(Codigo, Titulo, Ano, Nota, Genero, Valor, Disponivel)),
     salvar_filmes,  % Salvar filmes após o cadastro
