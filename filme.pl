@@ -1,6 +1,5 @@
 :- dynamic filme/7.
 
-% Remover os dados de filme abaixo para não replicar .txt
 % filme(Codigo, Titulo, Ano, Nota, Genero, Valor, Disponivel).
 
 % Cadastro de filme
