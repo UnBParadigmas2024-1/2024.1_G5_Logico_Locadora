@@ -4,7 +4,7 @@ filme(3, 'The Dark Knight', 2008, 9.0, [action,crime,drama], 19.8, true).
 filme(4, 'The Godfather Part II', 1974, 9.0, [crime,drama], 20.0, true).
 filme(5, '12 Angry Men', 1957, 9.0, [crime,drama], 19.6, true).
 filme(6, 'Schindler\'s List', 1993, 9.0, [biography,drama,history], 15.0, true).
-filme(7, 'The Lord of the Rings: The Return of the King', 2003, 9.0, [action,adventure,drama], 7.8, true).
+filme(7, 'The Lord of the Rings: The Retuarn of the King', 2003, 9.0, [action,adventure,drama], 7.8, true).
 filme(8, 'Pulp Fiction', 1994, 8.9, [crime,drama], 16.4, true).
 filme(9, 'The Lord of the Rings: The Fellowship of the Ring', 2001, 8.8, [action,adventure,drama], 8.8, true).
 filme(10, 'The Good, the Bad and the Ugly', 1966, 8.8, [adventure,western], 14.2, true).
