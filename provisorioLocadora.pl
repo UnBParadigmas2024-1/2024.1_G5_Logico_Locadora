@@ -1,3 +1,7 @@
+:- dynamic cliente/5. %está aqui para possibilar alteracao nos fatos do cliente
+:- dynamic filme/7. %está aqui para possibilar alteracao nos fatos do filme
+
+
 
 %base dos clientes 
 cliente(1, 'Eduardo', '111.222.333-44', drama, 100.0).
@@ -28,16 +32,28 @@ filme(249, 'Gandhi', 1982, 8.0, [biography,drama,history], 7.2, true).
 
 % Função para listar todos os clientes com seus códigos e nomes, vai ser utilizada no processo de recomendação de filme -> o operador do sistema vai escolher qual cliente deseja e filmes recomendados vão aparecer para ele
 listar_clientes :-
-    findall((Codigo, Nome), cliente(Codigo, Nome, _, _, _), Clientes),
+    findall((Codigo, Nome, Valor), cliente(Codigo, Nome, _, _, Valor), Clientes),
     writeln('Clientes cadastrados:'),
     listar(Clientes).
 
-% auxliar para listar os clientes cadastrados
+% Função para listar todos os filmes. Ainda verificando se vamos adicionar todos os filmes da base de dados
+listar_filmes :-
+    findall((Codigo, Titulo), filme(Codigo, Titulo, _, _, _, _, true), Filmes),
+    writeln('Filmes disponíveis:'),
+    listarAuxFilmes(Filmes).
+
+
+% auxliar para listar os clientes cadastrados no formato esperado
 listar([]).
-listar([(Codigo, Nome)|T]) :-
-    format('Código: ~w, Nome: ~w~n', [Codigo, Nome]),
+listar([(Codigo, Nome, Valor)|T]) :-
+    format('Código: ~w, Nome: ~w, Valor: ~w~n', [Codigo, Nome, Valor]),
     listar(T).
 
+% auxiliar para listar todos os filmes cadastrados no formato esperado. Precisa ser diferente do filme porque conta com argumentos difrentes
+listarAuxFilmes([]).
+listarAuxFilmes([(Codigo, Nome)|T]) :-
+    format('Código: ~w, Nome: ~w~n', [Codigo, Nome]),
+    listarAuxFilmes(T).
 
 % recomendador de filmes para ser utilizado dentro da rotina do menu
 recomendar_filmes(GeneroFavorito, FilmesRecomendados) :-
@@ -61,16 +77,72 @@ menu_recomendacao :-
 % % Processo de locação de filme
 % % precisa do codigo dos filmes, somar o valor dos filmes, descontar da carteira do cliente, se tiver fundos? beleza. Se não tiver, reportar que o saldo é insuficiente
 
-% locar_filmes(Nome, CodigosFilmes) :-
-%     cliente(CodCliente, Nome, _, _, Saldo),
-%     soma_valores(CodigosFilmes, CustoTotal),
-%     (   Saldo >= CustoTotal ->  NovoSaldo is Saldo - CustoTotal,
-%         format('Locação bem-sucedida! Novo saldo de ~w: ~2f', [Nome, NovoSaldo]);
-%   writeln('Saldo insuficiente para realizar a locação.')).
 
-% soma_valores([], 0).
-% soma_valores([Cod|Codigos], Total) :-
-%     filme(Cod, _, _, _, _, Valor, true),
-%     soma_valores(Codigos, TotalRestante),
-%     Total is Valor + TotalRestante.
+% Função para escolha de filmes. Vai ser chamada dentro do processo de locação
+escolher_filmes(FilmesEscolhidos) :-
+    listar_filmes,
+    writeln('Escolha filmes pelo código (digite "fim" para terminar):'),
+    escolher_filmes_aux(FilmesEscolhidos).
 
+
+% Funcao para realizar a seleçaõ dos filmes.Os filmes escolhidos aqui 
+escolher_filmes_aux(FilmesEscolhidos) :-
+    read_line_to_string(user_input, Input),
+    (   Input == "fim" 
+    ->  FilmesEscolhidos = []
+    ;   (   atom_number(Input, Codigo),
+            filme(Codigo, _, _, _, _, _, true)
+        ->  FilmesEscolhidos = [Codigo | Outros],
+            escolher_filmes_aux(Outros)
+        ;   writeln('Filme não encontrado ou indisponível.'),
+            escolher_filmes_aux(FilmesEscolhidos)
+        )
+    ).
+
+
+% Predicado para escolher cliente
+escolher_cliente(Codigo) :-
+    listar_clientes,
+    writeln('Escolha um cliente pelo código:'),
+    read_line_to_string(user_input, Input),
+    atom_number(Input, Codigo),
+    (   cliente(Codigo, _, _, _, _)
+    ->  true
+    ;   writeln('Cliente não encontrado.'),
+        escolher_cliente(Codigo)).
+
+% Predicado para calcular o valor total dos filmes
+calcular_valor_filmes([], 0).
+calcular_valor_filmes([Codigo|T], Total) :-
+    filme(Codigo, _, _, _, _, Valor, _),
+    calcular_valor_filmes(T, Subtotal),
+    Total is Valor + Subtotal.
+
+% Predicado para verificar saldo e realizar a locação
+realizar_locacao :-
+    escolher_cliente(CodigoCliente),
+    escolher_filmes(FilmesEscolhidos),
+    calcular_valor_filmes(FilmesEscolhidos, ValorTotal),
+    cliente(CodigoCliente, Nome, _, _, Saldo),
+    (   Saldo >= ValorTotal
+    ->  format('Saldo suficiente. Locação realizada para ~w.~n', [Nome]),
+        atualizar_saldo(CodigoCliente, ValorTotal),
+        atualizar_status_filmes(FilmesEscolhidos)
+    ;   format('Saldo insuficiente. Locação não realizada para ~w.~n', [Nome]),
+        writeln('Voltando ao menu principal.')
+    ).
+
+% Predicado para atualizar saldo do cliente
+atualizar_saldo(CodigoCliente, ValorTotal) :-
+    cliente(CodigoCliente, Nome, CPF, GeneroFavorito, Saldo),
+    NovoSaldo is Saldo - ValorTotal,
+    retract(cliente(CodigoCliente, Nome, CPF, GeneroFavorito, Saldo)),
+    assertz(cliente(CodigoCliente, Nome, CPF, GeneroFavorito, NovoSaldo)).
+
+% Predicado para atualizar status dos filmes
+atualizar_status_filmes([]).
+atualizar_status_filmes([Codigo|T]) :-
+    filme(Codigo, Titulo, Ano, Nota, Generos, Valor, _),
+    retract(filme(Codigo, Titulo, Ano, Nota, Generos, Valor, true)),
+    assertz(filme(Codigo, Titulo, Ano, Nota, Generos, Valor, false)),
+    atualizar_status_filmes(T).
