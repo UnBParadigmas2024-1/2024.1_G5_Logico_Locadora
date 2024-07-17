@@ -11,7 +11,9 @@ menu :-
     writeln('4. Cadastro de Filme'),
     writeln('5. Listar Filmes'),
     writeln('6. Excluir Filme'),
-    writeln('7. Sair'),
+    writeln('7. Recomendar um Filme'),
+    writeln('8. Realizar locação de filme'),
+    writeln('9. Sair'),
     writeln('Escolha uma opcao:'),
     read_line_to_string(user_input, OpcaoString),
     format('Opcao lida: ~w~n', [OpcaoString]),
@@ -20,6 +22,7 @@ menu :-
     ;   writeln('Opcao invalida!'),
         menu
     ).
+
 
 % Opcao do menu
 opcao(1) :-
@@ -64,7 +67,20 @@ opcao(6) :-
     writeln('excluir_filme concluído'),
     writeln('\n\n'),
     menu.
-opcao(7) :- 
+opcao(7) :-
+    imprimir_linha,
+    writeln('Opcao 7 selecionada, vamos recomendar um filme!'),
+    menu_recomendacao,
+    writeln('Recomendações feitas'),
+    writeln('\n\n'),
+    menu.
+opcao(8) :-
+    imprimir_linha,
+    writeln('Opcao 8 selecionada, vamos alugar um filme!'),
+    menu_realizar_locacao,
+    writeln('\n\n'),
+    menu.
+opcao(9) :- 
     imprimir_linha,
     writeln('Saindo...'),
     writeln('\n\n').

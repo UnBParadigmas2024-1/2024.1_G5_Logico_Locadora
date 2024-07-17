@@ -12,7 +12,7 @@
 :- [cliente].
 :- [menu].
 :- [filme].
-%:- [aluguel].
+:- [operacional].
 
 % Aqui é para inicializar o menu sem precisar de argumentos
 :- initialization(menu).

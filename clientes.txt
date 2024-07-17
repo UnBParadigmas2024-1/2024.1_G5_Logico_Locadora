@@ -1,6 +1,9 @@
-cliente(1, 'Eduardo', '111.222.333-44', drama, 100.0).
-cliente(2, 'Pessoa 2', '555.666.777-88', crime, 50.0).
-cliente(3, 'Pessoa 3', '999.888.777-66', action, 75.0).
-cliente(4, 'Eduardo G', '012.821.092-19', adventure, 200.0).
-cliente(5, 'Eduardo1', '077.000.000-99', mystery, 30.0).
-cliente(6, 'Jose', '123.123.123-12', crime, 25.0).
+cliente(1, 'Eduardo Gurgel', '111.222.333-44', drama, 100.0).
+cliente(2, 'João Silva', '555.666.777-88', crime, 50.0).
+cliente(3, 'Marcela Abrantes', '999.888.777-66', action, 75.0).
+cliente(4, 'Antônio Lacerda', '012.821.092-19', adventure, 200.0).
+cliente(5, 'Inácio Cunha', '077.000.000-99', mystery, 30.0).
+cliente(6, 'José Teles', '123.123.123-12', crime, 25.0).
+cliente(7, 'Gabriel Roberto', '191.145.178-40', comedy, 0.0).
+
+
