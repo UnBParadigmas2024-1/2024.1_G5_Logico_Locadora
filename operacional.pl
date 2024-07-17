@@ -45,28 +45,12 @@ recomendar_filmes(GeneroFavorito, FilmesRecomendados) :-
             FilmesRecomendados).
 
 
-% % Recomendador para ser chamado no menu
-% menu_recomendacao :-
-%     listar_clientes,
-%     writeln('Escolha um cliente pelo código:'),
-%     read(Codigo),
-%     (   cliente(Codigo, Nome, _, GeneroFavorito, _) ->
-%         writeln('Cliente encontrado, gerando recomendações...'), % Depuração
-%         recomendar_filmes(GeneroFavorito, FilmesRecomendados),
-%         (   FilmesRecomendados \= [] ->
-%             format('Recomendações para ~w:~n', [Nome]),
-%             listar(FilmesRecomendados)
-%         ;   writeln('Sem recomendações.')
-%         )
-%     ;   writeln('Cliente não encontrado.'), menu_recomendacao
-%     ).
+% Recomendador pra ser chamado no menu. 
 
-
-
-% Recomendador para ser chamado no menu
 menu_recomendacao :-
     lista_de_clientes,
     writeln('Escolha um cliente pelo código:'),
+
 
     read_line_to_string(user_input, Input),
     atom_number(Input, Codigo),
