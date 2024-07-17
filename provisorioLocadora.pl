@@ -62,17 +62,19 @@ recomendar_filmes(GeneroFavorito, FilmesRecomendados) :-
              member(GeneroFavorito, Generos)),
             FilmesRecomendados).
 
-
 % Recomendador pra ser chamado no menu. 
 menu_recomendacao :-
     listar_clientes,
     writeln('Escolha um cliente pelo código:'),
     read(Codigo),
-    (   cliente(Codigo, Nome, _, GeneroFavorito, _) ->  recomendar_filmes(GeneroFavorito, FilmesRecomendados),
-        (   FilmesRecomendados \= [] ->  format('Recomendações para ~w: ~n', [Nome]),
-            listar(FilmesRecomendados);   
-            writeln('Sem recomendações'));   
-            writeln('Cliente não encontrado.'), menu_recomendacao).
+    (   cliente(Codigo, Nome, _, GeneroFavorito, _)
+    ->  (   GeneroFavorito \= ''
+        ->  recomendar_filmes(GeneroFavorito, FilmesRecomendados),
+            (   FilmesRecomendados \= []
+            ->  format('Recomendações para ~w: ~n', [Nome]),
+                listarAuxFilmes(FilmesRecomendados)
+            ;   writeln('Sem recomendações')))
+    ;   writeln('Cliente não encontrado.'), menu_recomendacao).
 
 % % Processo de locação de filme
 % % precisa do codigo dos filmes, somar o valor dos filmes, descontar da carteira do cliente, se tiver fundos? beleza. Se não tiver, reportar que o saldo é insuficiente
