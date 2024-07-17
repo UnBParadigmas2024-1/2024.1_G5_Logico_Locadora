@@ -20,9 +20,18 @@ Paradigma:
 | 19/0117508  |  Thiago Cerqueira Borges  |
 
 ## Sobre 
-Descreva o seu projeto em linhas gerais. 
-Use referências, links, que permitam conhecer um pouco mais sobre o projeto.
-Capriche nessa seção, pois ela é a primeira a ser lida pelos interessados no projeto.
+O Projeto de Video Locadora em Prolog é uma aplicação desenvolvida como parte da disciplina de Paradigmas de programação na Universidade de Brasília. Essa aplicação permite gerenciar o aluguel e devolução de filmes em uma locadora fictícia
+Alguns dos recursos incluem:
+- **Cadastro de Usuários:** Além dos filmes, o sistema também permite o cadastro de usuários. Cada usuário pode fornecer informações como nome, CPF, endereço e telefone. Esses dados são armazenados para gerenciar os aluguéis e devoluções.
+- **Cadastro de filmes:** Ao adicionar um filme, você pode especificar detalhes como diretor, elenco, sinopse e classificação indicativa. Isso torna a busca e seleção de filmes mais completa.
+- **Recomendação de filmes:** Para melhorar a experiência dos usuários, o sistema agora oferece recomendações personalizadas. Com base nos filmes que um usuário já alugou, ele receberá sugestões de outros filmes semelhantes em gênero ou diretor.
+- **Exemplo de Consulta:** Suponha que um usuário tenha alugado o filme “Matrix”. O sistema pode recomendar filmes como “Blade Runner”, “Ghost in the Shell” ou “Inception”.
+
+### Referências sobre Prolog
+- [**SWI-Prolog Reference Manual**](https://www.swi-prolog.org/pldoc/doc_for?object=manual): Documentação oficial do SWI-Prolog, incluindo detalhes sobre a linguagem e suas funcionalidades.
+- [**Prolog Tutorial (TutorialsPoint):**](https://www.tutorialspoint.com/prolog/index.htm) tutorial online cobre uma ampla gama de tópicos sobre Prolog
+- [**An Efficient Movie Recommendation Algorithm**](https://hcis-journal.springeropen.com/articles/10.1186/s13673-018-0161-6): Artigo apresenta um algoritmo de recomendação de filmes que utiliza o método de k-clique para agrupar usuários com características semelhantes.
+
 
 ## Screenshots
 Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcionamento.
