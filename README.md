@@ -59,9 +59,15 @@ No Linux, você pode instalar o SWI-Prolog usando o gerenciador de pacotes da su
 2 - `sudo apt-get install swi-prolog`
 
 ## Uso 
-Explique como usar seu projeto.
-Procure ilustrar em passos, com apoio de telas do software, seja com base na interface gráfica, seja com base no terminal.
-Nessa seção, deve-se revelar de forma clara sobre o funcionamento do software.
+Depois de instalar o SWI-Prolog, você pode executá-lo a partir da linha de comando.
+
+Abra o terminal (ou o Prompt de Comando no Windows).
+<br>
+1 - Digite `swipl` e pressione Enter.
+<br>
+2 - Execute o programa digitando `[locadora].`
+
+![Animação](https://github.com/user-attachments/assets/b3b84d30-da4f-4239-aca0-a6b9b9828bce)
 
 ## Vídeo
 Adicione 1 ou mais vídeos com a execução do projeto.
