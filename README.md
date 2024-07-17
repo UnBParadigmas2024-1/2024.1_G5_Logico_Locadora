@@ -67,7 +67,8 @@ Abra o terminal (ou o Prompt de Comando no Windows).
 <br>
 2 - Execute o programa digitando `[locadora].`
 
-![Animação](https://github.com/user-attachments/assets/b3b84d30-da4f-4239-aca0-a6b9b9828bce)
+![Animação1](https://github.com/user-attachments/assets/6bbdea0e-5022-46b4-8a48-19b5788be5e7)
+
 
 ## Vídeo
 Adicione 1 ou mais vídeos com a execução do projeto.
