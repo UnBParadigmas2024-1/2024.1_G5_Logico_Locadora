@@ -37,11 +37,26 @@ Alguns dos recursos incluem:
 Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcionamento.
 
 ## Instalação 
-**Linguagens**: xxxxxx<br>
-**Tecnologias**: xxxxxx<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
-Insira um manual ou um script para auxiliar ainda mais.
-Gifs animados e outras ilustrações são bem-vindos!
+**Linguagens**: Prolog<br>
+### Windows
+#### 1. Download do SWI-Prolog
+Acesse o site oficial do SWI-Prolog: [SWI-Prolog Download](https://www.swi-prolog.org/download/stable).
+Clique no link para a versão do Windows e faça o download do instalador.
+#### 2. Instalação do SWI-Prolog
+Após o download, abra o arquivo do instalador (swipl-windows.exe ou similar).
+Siga as instruções do instalador. As opções padrão geralmente são suficientes, então você pode simplesmente clicar em "Next" em cada etapa.
+Clique em "Install" e, após a conclusão, clique em "Finish".
+#### 3. Configuração do Ambiente
+Após a instalação, você pode abrir o SWI-Prolog de duas maneiras:
+Via Menu Iniciar: Procure por "SWI-Prolog" no menu Iniciar do Windows e clique no ícone para abrir a interface gráfica.
+Via Linha de Comando: Abra o Prompt de Comando e digite swipl, então pressione Enter para abrir o intérprete do Prolog no modo texto.
+
+### Linux
+No Linux, você pode instalar o SWI-Prolog usando o gerenciador de pacotes da sua distribuição.
+<br>
+1 - `sudo apt-get update`
+<br>
+2 - `sudo apt-get install swi-prolog`
 
 ## Uso 
 Explique como usar seu projeto.
