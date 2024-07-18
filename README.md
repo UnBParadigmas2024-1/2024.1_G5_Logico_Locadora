@@ -91,7 +91,7 @@ Abra o terminal (ou o Prompt de Comando no Windows).
 | Marcos Diego da Silva Gomes | Revisão, identificação de possíveis problemas e correções do código principal, inclusão e modificação da base de fatos de filmes e clientes juntamente de sua manipulação em arquivo externo | Boa |
 | Matheus Raphael Soares de Oliveira  |  Ajuste na formatação dos fatos dos clientes e composição do README | Regular |
 | Pedro Helias Carlos | Revisão final do projeto, atuação na parte de Recomendação de Filme, Aluguel de Filme, organização do menu e do time. | Excelente |
-| Sebastián Héctor Zuzunaga Rosado | Apoio à criação da função de localização e recomendação; criação de função para histórico de aluguel e devolução de filme. | |
+| Sebastián Héctor Zuzunaga Rosado | Apoio à criação da função de localização e recomendação; criação de função para histórico de aluguel e devolução de filme. | Boa |
 | Thiago Cerqueira Borges | Pesquisa sobre dataset, adaptação e automatização na transformação dos dados usando Python de CSV para Prolog e criação das estrutura dos dados em prolog | Boa |
 
 
