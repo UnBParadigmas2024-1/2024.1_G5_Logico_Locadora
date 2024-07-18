@@ -14,7 +14,7 @@ menu :-
     writeln('7. Recomendar um Filme'),
     writeln('8. Realizar locação de filme'),
     writeln('9. Devolver filme'),
-    writeln('10. Mostrar historial de Aluguel'),
+    writeln('10. Mostrar histórico de Aluguel'),
     writeln('11. Sair'),
     writeln('Escolha uma opcao:'),
     read_line_to_string(user_input, OpcaoString),
@@ -84,13 +84,13 @@ opcao(8) :-
     menu.
 opcao(9) :-
     imprimir_linha,
-    writeln('Opcao 9 selecionada, vamos a devolver um filme!'),
+    writeln('Opcao 9 selecionada, vamos devolver um filme!'),
     devolver_filme,
     writeln('\n\n'),
     menu.
 opcao(10) :-
     imprimir_linha,
-    writeln('Opcao 10 selecionada, vamos a olhar o historial!'),
+    writeln('Opcao 10 selecionada, vamos olhar o historico!'),
     listar_alugueis,
     writeln('\n\n'),
     menu.
