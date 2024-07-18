@@ -94,7 +94,7 @@ TEMPO: +/- 15min
 | Charles Manrique Serafim Morais | | |
 | Eduardo Gurgel Pereira de Carvalho | | |
 | Ian da Costa Gama | | |
-| Marcos Diego da Silva Gomes | | |
+| Marcos Diego da Silva Gomes | Revisão, identificação de possíveis problemas e correções do código principal, inclusão e modificação da base de fatos de filmes e clientes juntamente de sua manipulação em arquivo externo | Boa |
 | Matheus Raphael Soares de Oliveira  |  Ajuste na formatação dos fatos dos clientes e composição do README | Regular |
 | Pedro Helias Carlos | | |
 | Sebastián Héctor Zuzunaga Rosado | | |
@@ -102,12 +102,27 @@ TEMPO: +/- 15min
 
 
 ## Outros 
-### Lições Aprendidas e Percepções<br>
-Todos os membros da equipe puderam por em prática o conhecimento adquirido sobre Prolog, construindo um programa de Locação de Filmes com um sistema de recomendação baseado nas preferências dos usuários.
-<br>
-Podemos perceber como é fácil fazer qualquer função de busca em Prolog, onde usamos em todas as principais funções desse programa.
+
+### Lições Aprendidas e Percepções
+- Prática do conhecimento adquirido sobre Prolog, construindo um programa de Locação de Filmes com um sistema de recomendação baseado nas preferências dos usuários
+- Praticidade do paradigma lógico ao utilizar funções de busca em Prolog
+- Criação e manipulação de arquivos
+
+### Contribuições
+- União do grupo em relação as ideias relacionadas ao projeto
+- Divisão de partes do projeto e auxílio em fontes de conhecimento para aprendizagem
+- Trabalho em subgrupos por modalidade do projeto, facilitando a aprendizagem e o entendimento do código
+
+### Fragilidades
+- Falta de interface gráfica mais elaborada
+- Validação constante de dados durante cadastro na base de fatos
+
+### Trabalhos Futuros
+- Aprimorar a interface do usuário
+- Validar os dados durante cadastros
 
 ## Fontes
 - [**SWI-Prolog Reference Manual**](https://www.swi-prolog.org/pldoc/doc_for?object=manual): Documentação oficial do SWI-Prolog, incluindo detalhes sobre a linguagem e suas funcionalidades.
-- [**Prolog Tutorial (TutorialsPoint):**](https://www.tutorialspoint.com/prolog/index.htm) tutorial online cobre uma ampla gama de tópicos sobre Prolog
+- [**Prolog Tutorial (TutorialsPoint):**](https://www.tutorialspoint.com/prolog/index.htm) Tutorial online que cobre uma ampla gama de tópicos sobre Prolog.
 - [**An Efficient Movie Recommendation Algorithm**](https://hcis-journal.springeropen.com/articles/10.1186/s13673-018-0161-6): Artigo apresenta um algoritmo de recomendação de filmes que utiliza o método de k-clique para agrupar usuários com características semelhantes.
+- [**Lista de vídeos de Prolog**](https://www.youtube.com/watch?v=x_ahRnd1gTI&list=PLZ-Bk6jzsb-OScKa7vhpcQXoU2uxYGaFx): Lista de vídeos no YouTube sobre Prolog em português.
