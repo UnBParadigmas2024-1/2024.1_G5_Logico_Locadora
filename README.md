@@ -85,14 +85,14 @@ Abra o terminal (ou o Prompt de Comando no Windows).
 ## Participações
 |Nome do Membro | Contribuição | Significância da Contribuição para o Projeto (Excelente/Boa/Regular/Ruim/Nula) |
 | -- | -- | -- |
-| Charles Manrique Serafim Morais | | |
-| Eduardo Gurgel Pereira de Carvalho | | |
+| Charles Manrique Serafim Morais | Não atuou | nula |
+| Eduardo Gurgel Pereira de Carvalho | Cadastro de Cliente, Listar Clientes, Excluir Cliente, Cadastro de Filme, Listar Filmes, Excluir Filme | Excelente |
 | Ian da Costa Gama | | |
 | Marcos Diego da Silva Gomes | Revisão, identificação de possíveis problemas e correções do código principal, inclusão e modificação da base de fatos de filmes e clientes juntamente de sua manipulação em arquivo externo | Boa |
 | Matheus Raphael Soares de Oliveira  |  Ajuste na formatação dos fatos dos clientes e composição do README | Regular |
-| Pedro Helias Carlos | | |
+| Pedro Helias Carlos | Revisão final do projeto, atuação na parte de Recomendação de Filme, Aluguel de Filme, organização do menu e do time. | Excelente |
 | Sebastián Héctor Zuzunaga Rosado | | |
-| Thiago Cerqueira Borges | | |
+| Thiago Cerqueira Borges | Pesquisa sobre dataset, adaptação e automatização na transformação dos dados usando Python de CSV para Prolog e criação das estrutura dos dados em prolog | Boa |
 
 
 ## Outros 
@@ -101,19 +101,24 @@ Abra o terminal (ou o Prompt de Comando no Windows).
 - Prática do conhecimento adquirido sobre Prolog, construindo um programa de Locação de Filmes com um sistema de recomendação baseado nas preferências dos usuários
 - Praticidade do paradigma lógico ao utilizar funções de busca em Prolog
 - Criação e manipulação de arquivos
+- Manipulação dos fatos do sistema utilizando os predicados
+- Utilização do dynamic
 
 ### Contribuições
 - União do grupo em relação as ideias relacionadas ao projeto
 - Divisão de partes do projeto e auxílio em fontes de conhecimento para aprendizagem
 - Trabalho em subgrupos por modalidade do projeto, facilitando a aprendizagem e o entendimento do código
+- Integração do projeto e adaptação dos códigos das partes.
 
 ### Fragilidades
 - Falta de interface gráfica mais elaborada
 - Validação constante de dados durante cadastro na base de fatos
+- Ausência de alguns membros na reunião geral e um membro, em específico, ausente em todos os processos dessa entraga.
 
 ### Trabalhos Futuros
 - Aprimorar a interface do usuário
 - Validar os dados durante cadastros
+- Melhorias no algoritmo de recomendação
 
 ## Fontes
 - [**SWI-Prolog Reference Manual**](https://www.swi-prolog.org/pldoc/doc_for?object=manual): Documentação oficial do SWI-Prolog, incluindo detalhes sobre a linguagem e suas funcionalidades.
