@@ -22,10 +22,10 @@ Paradigma:
 ## Sobre 
 O Projeto de Video Locadora em Prolog é uma aplicação desenvolvida como parte da disciplina de Paradigmas de programação na Universidade de Brasília. Essa aplicação permite gerenciar o aluguel e devolução de filmes em uma locadora fictícia
 Alguns dos recursos incluem:
-- **Cadastro de Usuários:** Além dos filmes, o sistema também permite o cadastro de usuários. Cada usuário pode fornecer informações como nome, CPF, endereço e telefone. Esses dados são armazenados para gerenciar os aluguéis e devoluções.
+- **Cadastro de Usuários:** Além dos filmes, o sistema também permite o cadastro de usuários. Cada usuário pode fornecer informações como nome, CPF, endereço e telefone, além de gênero favorito e saldo. Esses dados são armazenados para gerenciar os aluguéis e devoluções.
 - **Cadastro de filmes:** Ao adicionar um filme, você pode especificar detalhes como diretor, elenco, sinopse e classificação indicativa. Isso torna a busca e seleção de filmes mais completa.
-- **Recomendação de filmes:** Para melhorar a experiência dos usuários, o sistema agora oferece recomendações personalizadas. Com base nos filmes que um usuário já alugou, ele receberá sugestões de outros filmes semelhantes em gênero ou diretor.
-- **Exemplo de Consulta:** Suponha que um usuário tenha alugado o filme “Matrix”. O sistema pode recomendar filmes como “Blade Runner”, “Ghost in the Shell” ou “Inception”.
+- **Processo de Aluguel de filmes:** Filmes podem ser selecionados e associados ao usuário. Na existência de saldo disponível, há um débito relacionado a soma dos valores dos filmes. E, por fim o aluguel do filme é realizado.
+- **Recomendação de filmes:** Para melhorar a experiência dos usuários, o sistema agora oferece recomendações personalizadas baseadas nos gêneros favoritos do usuário. Com base nas preferências do usuário, os melhores filmes serão recomendados, garantindo assim uma melhor experiência.
 
 ### Referências sobre Prolog
 - [**SWI-Prolog Reference Manual**](https://www.swi-prolog.org/pldoc/doc_for?object=manual): Documentação oficial do SWI-Prolog, incluindo detalhes sobre a linguagem e suas funcionalidades.
