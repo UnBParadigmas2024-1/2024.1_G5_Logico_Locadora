@@ -20,21 +20,27 @@ Paradigma:
 | 19/0117508  |  Thiago Cerqueira Borges  |
 
 ## Sobre 
-O Projeto de Video Locadora em Prolog é uma aplicação desenvolvida como parte da disciplina de Paradigmas de programação na Universidade de Brasília. Essa aplicação permite gerenciar o aluguel e devolução de filmes em uma locadora fictícia
+O Projeto de Video Locadora em Prolog é uma aplicação desenvolvida como parte da disciplina de Paradigmas de programação na Universidade de Brasília. Essa aplicação permite gerenciar o aluguel e devolução de filmes em uma locadora fictícia.
+<br><br>
 Alguns dos recursos incluem:
-- **Cadastro de Usuários:** Além dos filmes, o sistema também permite o cadastro de usuários. Cada usuário pode fornecer informações como nome, CPF, endereço e telefone, além de gênero favorito e saldo. Esses dados são armazenados para gerenciar os aluguéis e devoluções.
-- **Cadastro de filmes:** Ao adicionar um filme, você pode especificar detalhes como diretor, elenco, sinopse e classificação indicativa. Isso torna a busca e seleção de filmes mais completa.
-- **Processo de Aluguel de filmes:** Filmes podem ser selecionados e associados ao usuário. Na existência de saldo disponível, há um débito relacionado a soma dos valores dos filmes. E, por fim o aluguel do filme é realizado.
-- **Recomendação de filmes:** Para melhorar a experiência dos usuários, o sistema agora oferece recomendações personalizadas baseadas nos gêneros favoritos do usuário. Com base nas preferências do usuário, os melhores filmes serão recomendados, garantindo assim uma melhor experiência.
+- **Cadastro de Usuários:** O sistema permite o cadastro de usuários. Cada usuário pode fornecer informações como nome, CPF, saldo disponível na conta da locadora e sua preferência em gênero de filmes. Esses dados são armazenados para gerenciar os aluguéis, devoluções e recomendações.
+- **Cadastro de Filmes:** Além de usuários, o sistema permite o cadastro de filmes. Ao adicionar um filme, você pode especificar detalhes como título, gênero, ano e nota. Isso torna a busca e seleção de filmes mais completa.
+- **Processo de Aluguel de Filmes**: Filmes podem ser selecionados e associados ao usuário. Na existência de saldo disponível, há um débito relacionado a soma dos valores dos filmes e, por fim, o aluguel do filme é realizado.
+- **Recomendação de Filmes:** Para melhorar a experiência dos usuários, o sistema oferece recomendações personalizadas. Com base nas preferências de filmes de um usuário, ele receberá sugestões de outros filmes semelhantes em gênero.
+    - **Exemplo de Recomendação:** Suponha que um usuário tenha alugado o filme “Matrix”. O sistema pode recomendar filmes como “Blade Runner” ou “Inception”, já que todos esses são filmes dos gêneros Ação e Ficção Científica.
 
-### Referências sobre Prolog
-- [**SWI-Prolog Reference Manual**](https://www.swi-prolog.org/pldoc/doc_for?object=manual): Documentação oficial do SWI-Prolog, incluindo detalhes sobre a linguagem e suas funcionalidades.
-- [**Prolog Tutorial (TutorialsPoint):**](https://www.tutorialspoint.com/prolog/index.htm) tutorial online cobre uma ampla gama de tópicos sobre Prolog
-- [**An Efficient Movie Recommendation Algorithm**](https://hcis-journal.springeropen.com/articles/10.1186/s13673-018-0161-6): Artigo apresenta um algoritmo de recomendação de filmes que utiliza o método de k-clique para agrupar usuários com características semelhantes.
 
 
 ## Screenshots
-Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcionamento.
+![Primeira Screenshot: Listagem de Clientes](./Screenshots/listagem_clientes.png)
+*Primeira imagem: Demonstração do resultado da função Lista Clientes*
+![Segunda Screenshot: Listagem de Filmes](./Screenshots/listagem_videos.png)
+*Segunda imagem: Demonstração do resultado da função Lista Filmes*
+![Terceira Screenshot: Recomendação de Filmes](./Screenshots/recomencao.png)
+*Terceira imagem: Resultado da função de Recomendação de Filmes, para um usuário que gosta de filmes de Aventura*
+![Quarta Screenshot: Locação de um Filme, parte 1/2](./Screenshots/locacao_filme1.png)
+![Quinta Screenshot: Locação de um Filme, parte 2/2](./Screenshots/locacao_filme2.png)
+*Quarta e quinta imagens: Demonstração do processo de locação de um filme para o usuário Marcela Abrantes*
 
 ## Instalação 
 **Linguagens**: Prolog<br>
@@ -66,6 +72,8 @@ Abra o terminal (ou o Prompt de Comando no Windows).
 1 - Digite `swipl` e pressione Enter.
 <br>
 2 - Execute o programa digitando `[locadora].`
+<br>
+3 - Siga as instruções dadas no menu para a utilização do programa.
 
 ![Animação1](https://github.com/user-attachments/assets/6bbdea0e-5022-46b4-8a48-19b5788be5e7)
 
@@ -81,18 +89,25 @@ OBS: TODOS DEVEM PARTICIPAR, CONFERINDO PONTOS DE VISTA.
 TEMPO: +/- 15min
 
 ## Participações
-Apresente, brevemente, como cada membro do grupo contribuiu para o projeto.
 |Nome do Membro | Contribuição | Significância da Contribuição para o Projeto (Excelente/Boa/Regular/Ruim/Nula) |
 | -- | -- | -- |
-| Fulano  |  Programação dos Fatos da Base de Conhecimento Lógica | Boa |
+| Charles Manrique Serafim Morais | | |
+| Eduardo Gurgel Pereira de Carvalho | | |
+| Ian da Costa Gama | | |
+| Marcos Diego da Silva Gomes | | |
+| Matheus Raphael Soares de Oliveira  |  Ajuste na formatação dos fatos dos clientes e composição do README | Regular |
+| Pedro Helias Carlos | | |
+| Sebastián Héctor Zuzunaga Rosado | | |
+| Thiago Cerqueira Borges | | |
+
 
 ## Outros 
-Quaisquer outras informações sobre o projeto podem ser descritas aqui. Não esqueça, entretanto, de informar sobre:
-(i) Lições Aprendidas;
-(ii) Percepções;
-(iii) Contribuições e Fragilidades, e
-(iV) Trabalhos Futuros.
+### Lições Aprendidas e Percepções<br>
+Todos os membros da equipe puderam por em prática o conhecimento adquirido sobre Prolog, construindo um programa de Locação de Filmes com um sistema de recomendação baseado nas preferências dos usuários.
+<br>
+Podemos perceber como é fácil fazer qualquer função de busca em Prolog, onde usamos em todas as principais funções desse programa.
 
 ## Fontes
-Referencie, adequadamente, as referências utilizadas.
-Indique ainda sobre fontes de leitura complementares.
+- [**SWI-Prolog Reference Manual**](https://www.swi-prolog.org/pldoc/doc_for?object=manual): Documentação oficial do SWI-Prolog, incluindo detalhes sobre a linguagem e suas funcionalidades.
+- [**Prolog Tutorial (TutorialsPoint):**](https://www.tutorialspoint.com/prolog/index.htm) tutorial online cobre uma ampla gama de tópicos sobre Prolog
+- [**An Efficient Movie Recommendation Algorithm**](https://hcis-journal.springeropen.com/articles/10.1186/s13673-018-0161-6): Artigo apresenta um algoritmo de recomendação de filmes que utiliza o método de k-clique para agrupar usuários com características semelhantes.
