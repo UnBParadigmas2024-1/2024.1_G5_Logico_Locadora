@@ -1,5 +1,8 @@
 :- dynamic cliente/5. %está aqui para possibilar alteracao nos fatos do cliente
 :- dynamic filme/7. %está aqui para possibilar alteracao nos fatos do filme
+:- dynamic historico_aluguel/3.
+% Limpar histórico de aluguéis ao iniciar o programa
+:- retractall(historico_aluguel(_,_)).
 :- consult('filme.pl').
 :- consult('cliente.pl').
 
@@ -110,7 +113,7 @@ calcular_valor_filmes([Codigo|T], Total) :-
     calcular_valor_filmes(T, Subtotal),
     Total is Valor + Subtotal.
 
-% Funcao para verificar saldo e realizar a locação. A ser chamado no menu
+% Menu principal para realizar a locação de filmes
 menu_realizar_locacao :-
     escolher_cliente(CodigoCliente),
     escolher_filmes(FilmesEscolhidos),
@@ -119,6 +122,7 @@ menu_realizar_locacao :-
     (   Saldo >= ValorTotal
     ->  format('Pronto!!! Locação foi realizada para o cliente: ~w.~n', [Nome]),
         atualizar_saldo(CodigoCliente, ValorTotal),
+        registrar_aluguel(CodigoCliente, FilmesEscolhidos), % Registro de histórico de aluguel
         atualizar_status_filmes(FilmesEscolhidos)
     ;   format('Cliente com saldo insuficiente. A locação não foi realizada para o cliente: ~w.~n', [Nome]),
         writeln('Voltando ao menu principal.')
@@ -138,3 +142,56 @@ atualizar_status_filmes([Codigo|T]) :-
     retract(filme(Codigo, Titulo, Ano, Nota, Generos, Valor, true)),
     assertz(filme(Codigo, Titulo, Ano, Nota, Generos, Valor, false)),
     atualizar_status_filmes(T).
+
+% Funcao para atualizar status dos filmes na devolucao
+atualizar_status_filmes_d(Codigo) :-
+    filme(Codigo, Titulo, Ano, Nota, Generos, Valor, _),
+    retract(filme(Codigo, Titulo, Ano, Nota, Generos, Valor, false)),
+    assertz(filme(Codigo, Titulo, Ano, Nota, Generos, Valor, true)).
+
+% Função para registrar o histórico de aluguel
+registrar_aluguel(_, []).
+registrar_aluguel(CodigoCliente, [FilmeCodigo | Outros]) :-
+    assertz(historico_aluguel(FilmeCodigo, CodigoCliente)),
+    registrar_aluguel(CodigoCliente, Outros).
+
+% Função para listar todos os aluguéis registrados
+listar_alugueis :-
+    writeln('--- Lista de Aluguéis Registrados ---'),
+    historico_aluguel(FilmeCodigo, CodigoCliente),
+    filme(FilmeCodigo, Titulo, _, _, _, _, _),
+    cliente(CodigoCliente, Nome, _, _, _),
+    format('Cliente: ~w - Filme: ~w~n', [Nome, Titulo]),
+    fail.
+listar_alugueis.
+
+% Função para permitir que um cliente devolva um filme
+devolver_filme :-
+    writeln('--- Devolução de Filme ---'),
+    escolher_cliente(CodigoCliente),
+    listar_alugueis_cliente(CodigoCliente),
+    writeln('Digite o código do filme que deseja devolver (digite "fim" para cancelar):'),
+    read_line_to_string(user_input, Input),
+    (   Input == "fim" -> writeln('Devolução cancelada.')
+    ;   atom_number(Input, FilmeCodigo),
+        historico_aluguel(FilmeCodigo, CodigoCliente),
+        retract(historico_aluguel(FilmeCodigo, CodigoCliente)),
+        atualizar_status_filmes_d(FilmeCodigo),
+        filme(FilmeCodigo, Titulo, _, _, _, _, _),
+        format('Filme ~w devolvido pelo cliente.~n', [Titulo])
+    ;   writeln('Cliente não possui esse filme alugado.'),
+        devolver_filme
+    ).
+
+% Função auxiliar para listar aluguéis de um cliente específico
+listar_alugueis_cliente(CodigoCliente) :-
+    writeln('--- Aluguéis do Cliente ---'),
+    historico_aluguel(FilmeCodigo, CodigoCliente),
+    filme(FilmeCodigo, Titulo, _, _, _, _, _),
+    format('Código do Filme: ~w, Título: ~w~n', [FilmeCodigo, Titulo]),
+    fail.
+listar_alugueis_cliente(_).
+
+
+% Chamada para limpar o histórico de aluguéis ao iniciar
+:- retractall(historico_aluguel(_, _)).
